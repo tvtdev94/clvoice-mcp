@@ -21,7 +21,7 @@ async function main(): Promise<void> {
       : config.defaultSeconds;
 
   console.log(`[clvoice] recording ${seconds}s...`);
-  const { text, pasted } = await captureToInput({ config, stt }, { seconds, language: "vi" });
+  const { text, pasted } = await captureToInput({ config, stt }, { seconds, language: config.language });
   console.log(`[clvoice] transcript: ${text}`);
   console.log(
     pasted

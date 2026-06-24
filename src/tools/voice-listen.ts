@@ -35,7 +35,7 @@ function resolveSeconds(requested: number | undefined, config: Config): number {
 export function createVoiceListenHandler(deps: VoiceListenDeps) {
   return async (args: VoiceListenArgs): Promise<ToolResult> => {
     const seconds = resolveSeconds(args.seconds, deps.config);
-    const language = (args.language ?? "vi").trim() || "vi";
+    const language = (args.language ?? deps.config.language).trim() || deps.config.language;
 
     try {
       const { text, pasted } = await captureToInput(deps, { seconds, language });

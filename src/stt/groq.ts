@@ -27,7 +27,8 @@ export class GroqSttProvider implements SttProvider {
     const form = new FormData();
     form.append("file", new Blob([bytes], { type: input.mimeType }), "audio.wav");
     form.append("model", this.model);
-    if (input.language) form.append("language", input.language);
+    // Omit "language" to let Whisper auto-detect (handles Vietnamese + English).
+    if (input.language && input.language !== "auto") form.append("language", input.language);
     form.append("response_format", "json");
 
     const controller = new AbortController();

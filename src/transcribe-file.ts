@@ -17,10 +17,9 @@ async function main(): Promise<void> {
     console.error("usage: transcribe-file <wav> [language]");
     process.exit(2);
   }
-  const language = (process.argv[3] ?? "vi").trim() || "vi";
-
   const config = loadConfig();
   const stt = createSttProvider(config);
+  const language = (process.argv[3] ?? config.language).trim() || config.language;
 
   try {
     const { text, pasted } = await insertFromFile(

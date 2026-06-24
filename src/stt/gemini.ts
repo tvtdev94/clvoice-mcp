@@ -2,13 +2,19 @@ import { readFile } from "node:fs/promises";
 import { GoogleGenAI } from "@google/genai";
 import type { SttProvider, TranscribeInput } from "./provider.js";
 
-/** Build the transcription instruction for a given language. */
+/** Build the transcription instruction for a given language ("auto" = detect). */
 function buildPrompt(language: string): string {
+  if (!language || language === "auto") {
+    return (
+      "Transcribe the audio verbatim in its original spoken language " +
+      "(it may be Vietnamese or English). Output ONLY the transcription text, " +
+      "no quotes, no translation, no commentary, no timestamps."
+    );
+  }
   const lang = language === "vi" ? "Vietnamese" : language;
   return (
     `Transcribe the following ${lang} audio verbatim. ` +
-    `Output ONLY the transcription text with correct ${lang} diacritics, ` +
-    `no quotes, no translation, no commentary, no timestamps.`
+    `Output ONLY the transcription text, no quotes, no translation, no commentary, no timestamps.`
   );
 }
 
