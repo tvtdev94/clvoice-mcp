@@ -1,0 +1,43 @@
+{
+  "name": "clvoice-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Vietnamese voice input to Claude Code (ffmpeg mic capture + Gemini STT)",
+  "type": "module",
+  "bin": {
+    "clvoice-mcp": "dist/index.js",
+    "clvoice-once": "dist/capture-once.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "once": "node dist/capture-once.js",
+    "transcribe": "node dist/transcribe-file.js",
+    "hotkey": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/clvoice-hotkey.ps1",
+    "dev": "tsc --watch"
+  },
+  "keywords": [
+    "mcp",
+    "claude-code",
+    "voice",
+    "speech-to-text",
+    "vietnamese",
+    "gemini"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@google/genai": "^1.0.0",
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}
