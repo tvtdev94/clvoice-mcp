@@ -22,7 +22,7 @@ async function main(): Promise<void> {
     {
       title: "Voice Listen (Vietnamese)",
       description:
-        "Record the microphone for a few seconds, transcribe the Vietnamese speech, and place the " +
+        "Record the microphone for a few seconds, transcribe the speech (Vietnamese or English), and place the " +
         "text into the user's input box (clipboard + optional auto-paste) for them to edit. " +
         "It does NOT return the transcript and must NOT be executed: after calling, just confirm " +
         "briefly and wait for the user's next (edited) message. Use when the user wants to dictate input.",

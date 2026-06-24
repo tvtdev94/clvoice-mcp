@@ -5,7 +5,7 @@
 <h1 align="center">clvoice-mcp</h1>
 
 <p align="center">
-  <b>Vietnamese voice input for Claude Code.</b><br>
+  <b>Voice input for Claude Code — speak Vietnamese or English.</b><br>
   Hold a hotkey, speak, release — your speech is transcribed, cleaned, and dropped into the input box to edit.
 </p>
 

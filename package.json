@@ -1,7 +1,7 @@
 {
   "name": "clvoice-mcp",
   "version": "0.1.0",
-  "description": "MCP server for Vietnamese voice input to Claude Code (ffmpeg mic capture + Gemini STT)",
+  "description": "Voice input MCP for Claude Code — Vietnamese & English (ffmpeg mic + Groq Whisper/Gemini STT, push-to-talk)",
   "type": "module",
   "bin": {
     "clvoice-mcp": "dist/index.js",
