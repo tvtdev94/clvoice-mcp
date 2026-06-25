@@ -13,6 +13,7 @@
 param(
   [string]$GroqKey,
   [string]$MicDevice,
+  [string]$Lang = "vi",   # spoken language: vi (default), en, or auto
   [switch]$NoStatusLine
 )
 
@@ -83,6 +84,7 @@ if (Have claude) {
   & claude mcp add clvoice --scope user `
       --env "GROQ_API_KEY=$GroqKey" `
       --env "CLVOICE_MIC_DEVICE=$MicDevice" `
+      --env "CLVOICE_LANG=$Lang" `
       -- node $dist
   Write-Host "`nRegistered. Verify: claude mcp list"
 } else {
@@ -94,7 +96,8 @@ if (Have claude) {
     "args": ["$($dist -replace '\\','\\\\')"],
     "env": {
       "GROQ_API_KEY": "$GroqKey",
-      "CLVOICE_MIC_DEVICE": "$MicDevice"
+      "CLVOICE_MIC_DEVICE": "$MicDevice",
+      "CLVOICE_LANG": "$Lang"
     }
   }
 "@

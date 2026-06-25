@@ -66,8 +66,8 @@ The script installs deps, builds, detects your mic, asks for a Groq key, registe
 
 Non-interactive:
 ```powershell
-powershell -ExecutionPolicy Bypass -File setup.ps1 -GroqKey "<key>" -MicDevice "<mic>" 
-# add -NoStatusLine to skip the status line
+powershell -ExecutionPolicy Bypass -File setup.ps1 -GroqKey "<key>" -MicDevice "<mic>" -Lang vi
+# -Lang: vi (default), en, or auto  |  add -NoStatusLine to skip the status line
 ```
 
 ## Manual setup
