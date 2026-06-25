@@ -72,6 +72,9 @@ export async function insertFromFile(
         `model=${deps.config.cleanModel} | raw="${raw}" | final="${text}"`,
     );
 
+    // All noise / nothing meaningful — don't touch the clipboard or paste.
+    if (!text.trim()) return { text: "", pasted: false };
+
     await copyToClipboard(text);
 
     let pasted = false;

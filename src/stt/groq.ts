@@ -30,6 +30,7 @@ export class GroqSttProvider implements SttProvider {
     // Omit "language" to let Whisper auto-detect (handles Vietnamese + English).
     if (input.language && input.language !== "auto") form.append("language", input.language);
     form.append("response_format", "json");
+    form.append("temperature", "0"); // reduce hallucination on noise/silence
 
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 15000);
