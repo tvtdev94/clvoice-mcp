@@ -15,7 +15,7 @@ param(
   [string]$MicDevice,
   [string]$Lang           = "vi",                      # spoken language: vi (default), en, or auto
   [string]$Stt            = "groq",                    # STT engine: groq or gemini
-  [string]$GroqModel      = "whisper-large-v3-turbo",  # set whisper-large-v3 for higher accuracy
+  [string]$GroqModel      = "whisper-large-v3",        # accuracy default; set whisper-large-v3-turbo for ~1-2s faster
   [string]$CleanModel     = "llama-3.3-70b-versatile", # Groq chat model for transcript cleanup
   [string]$Hotkey         = "true",                    # host push-to-talk watcher in the server
   [string]$Clean          = "true",                    # clean filler words via Groq LLM

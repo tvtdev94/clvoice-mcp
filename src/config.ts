@@ -61,7 +61,7 @@ export function loadConfig(): Config {
     geminiApiKey: (process.env.GEMINI_API_KEY ?? "").trim(),
     geminiModel: (process.env.CLVOICE_GEMINI_MODEL ?? "gemini-2.5-flash").trim(),
     groqApiKey: (process.env.GROQ_API_KEY ?? "").trim(),
-    groqModel: (process.env.CLVOICE_GROQ_MODEL ?? "whisper-large-v3-turbo").trim(),
+    groqModel: (process.env.CLVOICE_GROQ_MODEL ?? "whisper-large-v3").trim(),
     ffmpegPath: (process.env.CLVOICE_FFMPEG_PATH ?? "ffmpeg").trim(),
     micDevice: (process.env.CLVOICE_MIC_DEVICE ?? "").trim(),
     defaultSeconds: parsePositiveInt(process.env.CLVOICE_DEFAULT_SECONDS, 15),

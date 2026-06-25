@@ -91,7 +91,7 @@ Groq STT, hotkey, and cleanup are all default-on, so they don't need env vars. T
 | `CLVOICE_STT` | ❌ | `groq` | STT engine: `groq` (fast, ~1s) or `gemini`. |
 | `CLVOICE_LANG` | ❌ | `vi` | Spoken language: `vi` (default), `en`, or `auto` (detect VI/EN). |
 | `GROQ_API_KEY` | ✅ (for groq) | — | Groq API key — https://console.groq.com/keys |
-| `CLVOICE_GROQ_MODEL` | ❌ | `whisper-large-v3-turbo` | Groq Whisper model. Set to `whisper-large-v3` for higher accuracy (esp. Vietnamese) at ~1–2s more latency. |
+| `CLVOICE_GROQ_MODEL` | ❌ | `whisper-large-v3` | Groq Whisper model. Default favors accuracy (esp. Vietnamese); set `whisper-large-v3-turbo` for ~1–2s faster transcription. |
 | `GEMINI_API_KEY` | ✅ (for gemini) | — | Gemini API key. |
 | `CLVOICE_GEMINI_MODEL` | ❌ | `gemini-2.5-flash` | Gemini model (switch if a model 404s). |
 | `CLVOICE_MIC_DEVICE` | ❌ | (first input) | Exact dshow mic name. |
