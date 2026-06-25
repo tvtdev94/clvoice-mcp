@@ -91,7 +91,7 @@ function Beep-Safe([int]$f, [int]$d) { if (-not $NoBeep) { try { [console]::Beep
 function Start-Recording([string]$wav) {
   $psi = New-Object System.Diagnostics.ProcessStartInfo
   $psi.FileName = "ffmpeg"
-  $psi.Arguments = "-hide_banner -loglevel error -f dshow -i `"audio=$dev`" -ar 16000 -ac 1 -y `"$wav`""
+  $psi.Arguments = "-hide_banner -loglevel error -f dshow -i `"audio=$dev`" -af highpass=f=80,dynaudnorm -ar 16000 -ac 1 -y `"$wav`""
   $psi.RedirectStandardInput = $true
   $psi.UseShellExecute = $false
   $psi.CreateNoWindow = $true
@@ -115,6 +115,10 @@ while ($true) {
   if (Test-Combo) {
     $wav = Join-Path $env:TEMP ("clvoice-ptt-" + [guid]::NewGuid().ToString() + ".wav")
     $proc = Start-Recording $wav
+    # dshow needs ~0.3-0.5s to actually open the mic; beep only AFTER that so the
+    # user doesn't start talking before capture begins (otherwise the first word
+    # is clipped). The wait doubles as recording warm-up.
+    Start-Sleep -Milliseconds 400
     Set-State "REC"
     Beep-Safe 1100 90
     Write-Host "[clvoice] RECORDING... (release to stop)" -ForegroundColor Red
@@ -122,6 +126,8 @@ while ($true) {
     # Record until the main key is released.
     while ([CLVKey]::Down($mainVk)) { Start-Sleep -Milliseconds 30 }
 
+    # Brief lead-out so the trailing word isn't cut off on release.
+    Start-Sleep -Milliseconds 150
     Stop-Recording $proc
     Set-State "STT"
     Beep-Safe 600 90

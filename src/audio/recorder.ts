@@ -167,6 +167,10 @@ export async function recordAudio(options: RecordOptions): Promise<RecordResult>
       `audio=${device}`,
       "-t",
       String(options.seconds),
+      // Clean the signal for the STT model: drop sub-80Hz rumble/AC hum, then
+      // loudness-normalize so quiet mics are boosted to a consistent level.
+      "-af",
+      "highpass=f=80,dynaudnorm",
       "-ar",
       "16000",
       "-ac",

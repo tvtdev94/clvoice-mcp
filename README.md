@@ -41,6 +41,7 @@ Two ways to trigger:
 
 - 🎙️ Push-to-talk dictation (hold to talk, release to send)
 - ⚡ Fast STT via **Groq Whisper** (~1s); **Gemini** as an alternative
+- 🎚️ Audio preprocessing (high-pass + loudness normalize) + clip-safe start/stop for cleaner capture
 - ✨ Filler-word cleanup ("à, ừm, ờ...") + punctuation via a Groq LLM (context-aware, never executes your text)
 - 📋 Clipboard + auto-paste into whatever window is focused
 - 🔊 Audio beeps (start / stop / done) + on-terminal status line
@@ -90,7 +91,7 @@ Groq STT, hotkey, and cleanup are all default-on, so they don't need env vars. T
 | `CLVOICE_STT` | ❌ | `groq` | STT engine: `groq` (fast, ~1s) or `gemini`. |
 | `CLVOICE_LANG` | ❌ | `vi` | Spoken language: `vi` (default), `en`, or `auto` (detect VI/EN). |
 | `GROQ_API_KEY` | ✅ (for groq) | — | Groq API key — https://console.groq.com/keys |
-| `CLVOICE_GROQ_MODEL` | ❌ | `whisper-large-v3-turbo` | Groq Whisper model. |
+| `CLVOICE_GROQ_MODEL` | ❌ | `whisper-large-v3-turbo` | Groq Whisper model. Set to `whisper-large-v3` for higher accuracy (esp. Vietnamese) at ~1–2s more latency. |
 | `GEMINI_API_KEY` | ✅ (for gemini) | — | Gemini API key. |
 | `CLVOICE_GEMINI_MODEL` | ❌ | `gemini-2.5-flash` | Gemini model (switch if a model 404s). |
 | `CLVOICE_MIC_DEVICE` | ❌ | (first input) | Exact dshow mic name. |
