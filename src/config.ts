@@ -57,7 +57,7 @@ export function loadConfig(): Config {
   const sttProvider = (process.env.CLVOICE_STT ?? "groq").trim().toLowerCase() === "gemini" ? "gemini" : "groq";
   return {
     sttProvider,
-    language: (process.env.CLVOICE_LANG ?? "auto").trim().toLowerCase(),
+    language: (process.env.CLVOICE_LANG ?? "vi").trim().toLowerCase(),
     geminiApiKey: (process.env.GEMINI_API_KEY ?? "").trim(),
     geminiModel: (process.env.CLVOICE_GEMINI_MODEL ?? "gemini-2.5-flash").trim(),
     groqApiKey: (process.env.GROQ_API_KEY ?? "").trim(),

@@ -88,7 +88,7 @@ Groq STT, hotkey, and cleanup are all default-on, so they don't need env vars. T
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
 | `CLVOICE_STT` | ❌ | `groq` | STT engine: `groq` (fast, ~1s) or `gemini`. |
-| `CLVOICE_LANG` | ❌ | `auto` | Spoken language: `auto` (detect VI/EN, recommended), `vi`, or `en`. |
+| `CLVOICE_LANG` | ❌ | `vi` | Spoken language: `vi` (default), `en`, or `auto` (detect VI/EN). |
 | `GROQ_API_KEY` | ✅ (for groq) | — | Groq API key — https://console.groq.com/keys |
 | `CLVOICE_GROQ_MODEL` | ❌ | `whisper-large-v3-turbo` | Groq Whisper model. |
 | `GEMINI_API_KEY` | ✅ (for gemini) | — | Gemini API key. |
